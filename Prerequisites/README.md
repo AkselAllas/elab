@@ -8,8 +8,12 @@
 # Preparatory steps:
 ```bash
 $ git clone git@github.com:joosepm/elab.git
-$ mkdir esdata0
-$ mkdir esdata1
-$ mkdir esdata2
-$ mkdir lsdata
+```
+Download NASA access logs from  http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html:
+- [july 1995](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz)
+- [aug 1995](ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz)
+
+Set mmapfs parameters in your environment:
+``` bash
+$ sysctl -w vm.max_map_count=262144
 ```
