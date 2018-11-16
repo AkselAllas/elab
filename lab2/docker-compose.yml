@@ -1,0 +1,48 @@
+version: '2.2'
+services:
+  elasticsearch0-lab2:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+    container_name: elasticsearch0-lab2
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "node.name=elasticsearch0-lab2"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./esdata0:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+    networks:
+      - esnet
+  kibana-lab2:
+    image: docker.elastic.co/kibana/kibana:6.4.3
+    container_name: kibana-lab2
+    environment:
+      SERVER_NAME: kibana.example.org
+      ELASTICSEARCH_URL: http://elasticsearch0-lab2:9200
+    ports:
+      - 5601:5601
+    networks:
+      - esnet
+  logstash-lab2:
+    image: docker.elastic.co/logstash/logstash:6.4.3
+    container_name: logstash-lab2
+    environment:
+      XPACK_MANAGEMENT_ENABLED: "false"
+      XPACK_MONITORING_ENABLED: "false"
+      CONFIG_RELOAD_AUTOMATIC: "true"
+    volumes:
+      - ./lsdata/pipeline:/usr/share/logstash/pipeline/
+      - ./lsdata/input:/data/
+    ports:
+      - 1100:1100
+      - 1101:1101
+      - 1102:1102
+    networks:
+      - esnet
+networks:
+  esnet:
