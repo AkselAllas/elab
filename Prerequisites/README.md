@@ -9,14 +9,9 @@
 ```bash
 $ git clone git@github.com:joosepm/elab.git
 ```
-Download NASA access logs from  http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html:
-- [july 1995][1]
-- [aug 1995][2]
+Download NASA access logs from  http://ita.ee.lbl.gov/html/contrib/NASA-HTTP.html
 
 Set mmapfs parameters in your environment:
 ``` bash
 $ sysctl -w vm.max_map_count=262144
 ```
-
-[1]: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz
-[2]: ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz
