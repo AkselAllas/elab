@@ -26,13 +26,13 @@ curl -X PUT -H 'Content-Type: application/json' http://localhost:9200/_cluster/s
 ```
 Shut down first node and check cluster status
 ```bash
-$ docker stop elasticsearch1
+$ docker stop es0-lab1
 ```
 Shut down second node and check cluster status
 
 Start first node again
 ```bash
-$ docker start elasticsearch1
+$ docker start es0-lab1
 ```
 Enable shard allocation and check cluster status:
 ```code
