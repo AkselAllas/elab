@@ -1,1 +1,3 @@
 
+{"@version":"1","type":"syslog","@timestamp":"2020-10-31T10:51:54.171Z","host":"3c229f2feebd","message":"test2","path":"/data/messages0","tags":["test"]}
+{"@version":"1","type":"syslog","@timestamp":"2020-10-31T10:52:15.259Z","host":"3c229f2feebd","message":"test2","path":"/data/messages0","tags":["test"]}
